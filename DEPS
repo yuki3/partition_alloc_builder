@@ -6,6 +6,9 @@
 # therefore dependencies need to be strictly controlled and minimized.
 
 gclient_gn_args_file = 'partition_alloc_builder/build/config/gclient_args.gni'
+gclient_gn_args = [
+  'build_with_chromium',
+]
 
 # Only these hosts are allowed for dependencies in this DEPS file.
 # This is a subset of chromium/src/DEPS's allowed_hosts.
@@ -14,6 +17,11 @@ allowed_hosts = [
 ]
 
 vars = {
+  # Variable that can be used to support multiple build scenarios, like having
+  # Chromium specific targets in a client project's GN file or sync dependencies
+  # conditionally etc.
+  'build_with_chromium': False,
+
   'chromium_git': 'https://chromium.googlesource.com',
 }
 
@@ -23,6 +31,8 @@ deps = {
       '/chromium/src/base/allocator/partition_allocator.git',
   'partition_alloc_builder/build':
       Var('chromium_git') + '/chromium/src/build.git',
+  'partition_alloc_builder/build_overrides':
+      Var('chromium_git') + '/chromium/src/build_overrides.git',
   'partition_alloc_builder/buildtools':
       Var('chromium_git') + '/chromium/src/buildtools.git',
   'partition_alloc_builder/buildtools/clang_format/script':
