@@ -18,6 +18,9 @@ vars = {
 }
 
 deps = {
+  'partition_alloc_builder/base/allocator/partition_allocator':
+      Var('chromium_git') +
+      '/chromium/src/base/allocator/partition_allocator.git',
   'partition_alloc_builder/build':
       Var('chromium_git') + '/chromium/src/build.git',
   'partition_alloc_builder/buildtools':
