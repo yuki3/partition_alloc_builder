@@ -75,6 +75,14 @@ deps = {
       '/external/github.com/llvm/llvm-project/libcxxabi.git',
   'partition_alloc_builder/tools/clang':
       Var('chromium_git') + '/chromium/src/tools/clang.git',
+  'partition_alloc_builder/testing':
+      Var('chromium_git') + '/chromium/src/testing.git',
+  'partition_alloc_builder/third_party/googletest/src':
+      Var('chromium_git') + '/external/github.com/google/googletest.git',
+  'partition_alloc_builder/third_party/lss': {
+      'url': Var('chromium_git') + '/linux-syscall-support.git',
+      'condition': 'checkout_android or checkout_linux',
+  },
 }
 
 hooks = [
