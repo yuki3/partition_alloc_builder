@@ -16,7 +16,7 @@ set up on your local environment (including PATH).
 1. gn args out/Default
 1. autoninja -C out/Default
 
-Then, //out/Default/libpartition_alloc.so is built (on GNU/Linux).
+Then, //out/Default/libbase_allocator_partition_allocator_partition_alloc.so is built (on GNU/Linux).
 
 ## Known problems
 
