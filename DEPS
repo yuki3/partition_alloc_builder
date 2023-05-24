@@ -83,6 +83,15 @@ deps = {
       'url': Var('chromium_git') + '/linux-syscall-support.git',
       'condition': 'checkout_android or checkout_linux',
   },
+  'partition_alloc_builder/third_party/ninja': {
+    'packages': [
+      {
+        'package': 'infra/3pp/tools/ninja/${{platform}}',
+        'version': 'latest',
+      }
+    ],
+    'dep_type': 'cipd',
+  },
 }
 
 hooks = [
